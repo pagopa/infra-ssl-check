@@ -1,6 +1,11 @@
 name: Create and publish a Docker image
 
 on:
+  workflow_run:
+    workflows:
+      - Release
+    types:
+      - completed
   release:
     types:
       - created
@@ -11,11 +16,11 @@ env:
 
 jobs:
   build-and-push-image:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -32,7 +37,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ github.event.release.tag_name }}
+          tags: ${GITHUB_REF##*/}
           labels: |
             maintainer=https://pagopa.it
-            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.source=https://github.com/${GITHUB_REF##*/}
