@@ -1,0 +1,37 @@
+microservice-chart:
+  namespace: tls
+
+  image:
+    repository: ghcr.io/pagopa/infra-ssl-check
+    tag: latest # TODO - Temporary, use hash or at least semver
+
+  ingress:
+    create: false
+
+  service:
+    create: false
+
+  resources:
+    requests:
+      memory: 20Mi
+      cpu: 100m
+    limits:
+      memory: 512Mi
+      cpu: 1000m
+
+  envConfig:
+    WEBSITE_SITE_NAME: "https://pagopa.it" # TODO - Check if it is working
+    FUNCTION_WORKER_RUNTIME: dotnet
+    TIME_TRIGGER: "0 * * * * *" # TODO - Once every 30'
+    FunctionName: "https://pagopa.it" # TODO - make this not mandatory, use Host as default
+    Region: West Europe
+    ExpirationDeltaInDays: 15
+    Host: "https://pagopa.it"
+
+  envSecret:
+    APPINSIGHTS_INSTRUMENTATIONKEY: infra-tls-check-appinsights-instrumentationkey
+    AzureWebJobsStorage: infra-tls-check-azurewebjobsstorage
+
+  keyvault:
+    name: dvopla-d-neu-kv
+    tenantId: 7788edaf-0346-4068-9d79-c868aed15b3d
