@@ -9,6 +9,7 @@ RUN cd /src/dotnet-function-app && \
     dotnet publish *.csproj --output /home/site/wwwroot
 
 FROM mcr.microsoft.com/azure-functions/dotnet:4-slim
+
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true
 
