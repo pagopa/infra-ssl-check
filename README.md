@@ -32,4 +32,3 @@ ExpirationDeltaInDays = 15
 Host = "https://google.com"
 ```
 
-
