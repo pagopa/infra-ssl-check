@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    network_mode: service:azurite
+    env_file: [.env]
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
