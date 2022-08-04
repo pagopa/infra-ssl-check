@@ -46,4 +46,4 @@ jobs:
           tags: ${{ steps.release.outputs.release }}
           labels: |
             maintainer=https://pagopa.it
-            org.opencontainers.image.source=https://github.com/${{ steps.release.outputs.release }}
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
