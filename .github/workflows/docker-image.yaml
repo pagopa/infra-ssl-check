@@ -40,7 +40,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.release.outputs.release }}
+          tags: |
+            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}:${{ steps.release.outputs.release }}
             # labels: |
             #   maintainer=https://pagopa.it
             #   org.opencontainers.image.source=https://github.com/${{ github.repository }}
