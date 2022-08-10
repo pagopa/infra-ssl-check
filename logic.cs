@@ -38,7 +38,7 @@ namespace PagoPA
 
       var req = new HttpRequestMessage(HttpMethod.Get, url);
       HttpResponseMessage response = client.Send(req);
-      response.EnsureSuccessStatusCode();
+      // response.EnsureSuccessStatusCode();
 
       if (certExpiration < DateTime.Now.AddDays(options.ExpirationDeltaInDays))
       {
