@@ -54,7 +54,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ steps.release.outputs.new_release_version }}
+            ghcr.io/${{ github.repository }}:v${{ steps.release.outputs.new_release_version }}
           labels: |
             maintainer=https://pagopa.it
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
