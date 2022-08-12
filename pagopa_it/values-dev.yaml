@@ -3,7 +3,7 @@ microservice-chart:
 
   image:
     repository: ghcr.io/pagopa/infra-ssl-check
-    tag: 1.2.1
+    tag: v1.2.1
 
   sidecars:
     - name: azurite
@@ -34,10 +34,10 @@ microservice-chart:
   envConfig:
     WEBSITE_SITE_NAME: "https://pagopa.it" # TODO - Check if it is working
     FUNCTION_WORKER_RUNTIME: dotnet
-    TIME_TRIGGER: "0 * * * * *" # TODO - Once every 30'
+    TIME_TRIGGER: "0 * * * * *"
     FunctionName: "https://pagopa.it" # TODO - make this not mandatory, use Host as default
     Region: West Europe
-    ExpirationDeltaInDays: 15
+    ExpirationDeltaInDays: "15"
     Host: "https://pagopa.it"
     AzureWebJobsStorage: "UseDevelopmentStorage=true"
 
