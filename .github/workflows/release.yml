@@ -7,10 +7,10 @@ on:
     branches:
       - main
     paths-ignore:
-      - "CODEOWNERS"
-      - "**.md"
-      - ".**"
-      - "pagopa_it/**"
+      - 'CODEOWNERS'
+      - '**.md'
+      - '.**'
+      - 'pagopa_it/**'
 
 jobs:
   release:
@@ -22,7 +22,6 @@ jobs:
       packages: write
 
     steps:
-
       - name: Checkout
         id: checkout
         uses: actions/checkout@v2
