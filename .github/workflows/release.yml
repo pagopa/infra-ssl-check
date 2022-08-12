@@ -11,7 +11,7 @@ on:
       - "CODEOWNERS"
       - "**.md"
       - ".**"
-      - "pagopa_it"
+      - "pagopa_it/**"
 
 jobs:
   release:
