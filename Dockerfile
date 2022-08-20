@@ -10,6 +10,8 @@ RUN cd /src/dotnet-function-app && \
 # https://mcr.microsoft.com/v2/azure-functions/dotnet/tags/list
 FROM mcr.microsoft.com/azure-functions/dotnet:4.9.1-slim@sha256:1642d5fa1472e012dfdf09150f7c0ac68c559751242c9c1e7096b635cc9b8021
 
+RUN rm -rf /FuncExtensionBundles
+
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true
 
