@@ -3,11 +3,5 @@ services:
     build: .
     network_mode: service:azurite
     env_file: [.env]
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost/healthz/live"]
-      interval: 10s
-      timeout: 1s
-      retries: 3
-      start_period: 10s
   azurite:
     image: mcr.microsoft.com/azure-storage/azurite
