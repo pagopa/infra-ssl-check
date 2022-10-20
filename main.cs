@@ -11,15 +11,15 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 namespace PagoPA
 {
-  public class SftpTest
+  public class CustomTest
   {
     private readonly Options _options;
-    private readonly ILogger<SftpTest> _log;
+    private readonly ILogger<CustomTest> _log;
     private readonly TelemetryClient _telemetryClient;
 
-    public SftpTest(
+    public CustomTest(
         IOptions<Options> options,
-        ILogger<SftpTest> log,
+        ILogger<CustomTest> log,
         TelemetryConfiguration telemetryConfiguration
         )
     {

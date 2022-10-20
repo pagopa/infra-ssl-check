@@ -12,6 +12,8 @@ FROM mcr.microsoft.com/azure-functions/dotnet:4.11.3-slim@sha256:a3f3888209af3c9
 
 RUN rm -rf /FuncExtensionBundles
 
+RUN apt-get update && apt-get install -y curl
+
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true
 
