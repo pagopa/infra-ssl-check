@@ -16,3 +16,11 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true
 
 COPY --from=installer-env ["/home/site/wwwroot", "/home/site/wwwroot"]
+
+RUN useradd pagopa-user && \
+    mkdir -p /home/pagopa-user && \
+    chown -R pagopa-user:pagopa-user /home/pagopa-user
+
+USER pagopa-user
+
+RUN whoami
