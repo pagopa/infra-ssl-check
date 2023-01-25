@@ -1,9 +1,9 @@
 microservice-chart:
-  namespace: tls
+  namespace: apps
 
   image:
     repository: ghcr.io/pagopa/infra-ssl-check
-    tag: v1.2.1
+    tag: v1.3.3
 
   sidecars:
     - name: azurite
@@ -23,6 +23,9 @@ microservice-chart:
   service:
     create: false
 
+  secretProviderClass:
+    create: true
+
   resources:
     requests:
       memory: 20Mi
@@ -32,10 +35,10 @@ microservice-chart:
       cpu: 1000m
 
   envConfig:
-    WEBSITE_SITE_NAME: "https://pagopa.it" # TODO - Check if it is working
+    WEBSITE_SITE_NAME: "https://pagopa.it"
     FUNCTION_WORKER_RUNTIME: dotnet
     TIME_TRIGGER: "0 * * * * *"
-    FunctionName: "https://pagopa.it" # TODO - make this not mandatory, use Host as default
+    FunctionName: "https://pagopa.it"
     Region: West Europe
     ExpirationDeltaInDays: "15"
     Host: "https://pagopa.it"

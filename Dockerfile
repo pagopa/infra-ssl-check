@@ -15,6 +15,8 @@ RUN rm -rf /FuncExtensionBundles
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true
 
+ENV ASPNETCORE_URLS=http://*:8080
+
 COPY --from=installer-env ["/home/site/wwwroot", "/home/site/wwwroot"]
 
 RUN useradd pagopa-user && \
@@ -25,4 +27,4 @@ USER pagopa-user
 
 RUN whoami
 
-EXPOSE 80
+EXPOSE 8080
